@@ -11,7 +11,7 @@ const monitorAccFactory = (
   maxLength: number
 ) => {
   return function (this: BluetoothRemoteGATTCharacteristic, ev: Event) {
-    const timestamp = this.value?.getUint32(0);
+    // const timestamp = this.value?.getUint32(0);
     if (!this.value) return;
     const x =
       (((this.value.getInt8(5) << 8) | this.value.getInt8(6)) * -1 * 16) /
@@ -40,7 +40,7 @@ const monitorMagFactory = (
   maxLength: number
 ) => {
   return function (this: BluetoothRemoteGATTCharacteristic, ev: Event) {
-    const timestamp = this.value?.getUint32(0);
+    // const timestamp = this.value?.getUint32(0);
     if (!this.value) return;
     const x =
       ((this.value.getInt8(4) << 8) | this.value.getInt8(5)) * 1.1796875;

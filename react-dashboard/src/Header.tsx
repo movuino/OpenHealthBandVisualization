@@ -24,7 +24,7 @@ const AppHeader: React.FC<AppHeaderProps> = (props) => {
 
   const onColorSchemeButton = useCallback(() => {
     toggleColorScheme();
-  }, [colorScheme])
+  }, [toggleColorScheme])
 
   return (
     <Header

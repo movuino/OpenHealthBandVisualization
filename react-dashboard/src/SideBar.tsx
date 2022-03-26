@@ -2,7 +2,6 @@
 import React, {
     useState,
   } from "react";
-  import logo from "./logo.svg";
   import "./App.css";
   import {
     Button,
@@ -11,7 +10,6 @@ import React, {
     Divider,
     Group,
     Badge,
-    useMantineTheme,
   } from "@mantine/core";
 
 interface SideBarProps {
@@ -28,7 +26,6 @@ interface SideBarProps {
 
 const SideBar: React.FC<SideBarProps> = (props) => {
     const [isStarted, setStarted] = useState(false);
-    const theme = useMantineTheme();
     return (
       <Navbar width={{ base: 300 }} style={{flexDirection: 'column'}} fixed p="xs" sx={theme => ({backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[9] : 'default'})}>
         <Button onClick={props.onConnectionButtonClick}>Connect to device</Button>
