@@ -200,7 +200,7 @@ function App() {
     const accCharacteristic = await imuService?.getCharacteristic(BLE_ACC_CHAR_UUID);
 
     accCharacteristic!.oncharacteristicvaluechanged = function (this: BluetoothRemoteGATTCharacteristic, ev: Event) {
-      console.log("recording", recordLineRef.current?.length);
+      console.log("recording ", recordLineRef.current?.length);
       monitorAccFactory(accRef, SERIES_MAX_LENGTH).call(this, ev);
       setData({
         acc: accRef.current,
