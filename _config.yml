@@ -33,7 +33,7 @@ plugins:
 whitelist:
   - jekyll-redirect-from
 
-exclude: ['_site', 'basic', 'react-dashboard']
+exclude: ['_site', 'node_modules']
 
 # Exclude from processing.
 # The following items will not be processed, by default.
