@@ -11,20 +11,27 @@ import {
   useMantineTheme,
   useMantineColorScheme
 } from "@mantine/core";
+import { useTour } from "@reactour/tour";
 
-import { BrandGithub, Moon, Sun } from "tabler-icons-react";
+import { BrandGithub, Moon, Sun, QuestionMark } from "tabler-icons-react";
 
 interface AppHeaderProps {
   version: string;
 }
 
 const AppHeader: React.FC<AppHeaderProps> = (props) => {
+  const { setIsOpen, setCurrentStep } = useTour()
   const theme = useMantineTheme();
   const { colorScheme, toggleColorScheme } = useMantineColorScheme();
 
   const onColorSchemeButton = useCallback(() => {
     toggleColorScheme();
   }, [toggleColorScheme])
+
+  const startTour = useCallback(() => {
+    setCurrentStep(0);
+    setIsOpen(true);
+  }, [setCurrentStep, setIsOpen])
 
   return (
     <Header
@@ -40,7 +47,7 @@ const AppHeader: React.FC<AppHeaderProps> = (props) => {
           colorScheme === "dark" ? theme.colors.dark[7] : "default",
       })}
     >
-      <Group>
+      <Group className="tour-step-0">
         <Title
           order={1}
           style={{ color: colorScheme === "dark" ? "#FFF" : "inherit"}}
@@ -57,6 +64,17 @@ const AppHeader: React.FC<AppHeaderProps> = (props) => {
       </Group>
       <Group>
       <Button
+          className="tour-step-7"
+          style={{ width: 34, height: 34 }}
+          variant="default"
+          p={0}
+          color="#DDD"
+          onClick={startTour}
+        >
+          <QuestionMark/>
+        </Button>
+      <Button
+          className="tour-step-7"
           style={{ width: 34, height: 34 }}
           variant="default"
           p={0}

@@ -4,8 +4,10 @@
   "homepage": ".",
   "private": true,
   "dependencies": {
+    "@emotion/react": "^11.8.2",
     "@mantine/core": "^4.0.7",
     "@mantine/hooks": "^4.0.7",
+    "@reactour/tour": "^2.10.0",
     "@testing-library/jest-dom": "^5.16.2",
     "@testing-library/react": "^12.1.4",
     "@testing-library/user-event": "^13.5.0",
