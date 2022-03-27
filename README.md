@@ -11,4 +11,4 @@ It is currently only supported by Chrome and Edge. Check the [Browser compatibil
 
 <ins>[Basic](https://movuino.github.io/OpenHealthBandVisualization/basic/)</ins>: A simple **HTML only** web page to test the Bluetooth services and characteristics. [View source](https://github.com/movuino/OpenHealthBandVisualization/tree/main/basic)  
 <br/>
-<ins>[Dashboard](https://movuino.github.io/OpenHealthBandVisualization/basic/)</ins>: A fully fletched single page application built using **React** with a more detailed UI and **recording** functionalities. [View source](https://github.com/movuino/OpenHealthBandVisualization/tree/main/react-dashboard)
+<ins>[Dashboard](https://movuino.github.io/OpenHealthBandVisualization/react-dashboard/)</ins>: A fully fletched single page application built using **React** with a more detailed UI and **recording** functionalities. [View source](https://github.com/movuino/OpenHealthBandVisualization/tree/main/react-dashboard)
