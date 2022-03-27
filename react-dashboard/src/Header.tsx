@@ -64,7 +64,6 @@ const AppHeader: React.FC<AppHeaderProps> = (props) => {
       </Group>
       <Group>
       <Button
-          className="tour-step-7"
           style={{ width: 34, height: 34 }}
           variant="default"
           p={0}
