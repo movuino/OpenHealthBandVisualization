@@ -133,11 +133,11 @@ function Dashboard() {
                 content: (<Text>This is the <span style={{ fontWeight: 'bold', color: theme.colors.blue[6] }}>Big Blue Button</span> !<br /> <span style={{ fontWeight: 'bold' }}>Click</span> on it to connect to your Movuino</Text>)
             }, {
                 selector: '.tour-step-2',
-                content: (<Text>Here you can see the status of the sensors. <br /><span style={{ fontWeight: 'bold', color: theme.colors.red[6] }}>Red</span> is usually not a good news...</Text>)
+                content: (<Text>Here you can see the status of the sensors. <br /><span style={{ fontWeight: 'bold', color: theme.colors.red[6] }}>Red</span> is usually not good news...</Text>)
             },
             {
                 selector: '.tour-step-3',
-                content: (<Text>Those are the <span style={{ fontWeight: 'bold', color: theme.colors.green[6] }}>Start</span> and <span style={{ fontWeight: 'bold', color: theme.colors.red[6] }}>Stop</span> buttons. <br />Use them to toggle the data acquisition</Text>)
+                content: (<Text>These are the <span style={{ fontWeight: 'bold', color: theme.colors.green[6] }}>Start</span> and <span style={{ fontWeight: 'bold', color: theme.colors.red[6] }}>Stop</span> buttons. <br />Use them to toggle the data acquisition</Text>)
             },
             {
                 selector: '.tour-step-4',
