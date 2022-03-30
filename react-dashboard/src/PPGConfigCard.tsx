@@ -8,6 +8,7 @@ import "./App.css";
 import {
   Button,
   Text,
+  Title,
   Paper,
   Slider,
   Select,
@@ -71,7 +72,7 @@ const PPGConfigCard: React.FC<PPGConfigCardProps> = ({ gattServer }) => {
 
   return (
     <Paper p="md" className="card" shadow="sm">
-      <Text>PPG Config</Text>
+      <Title order={4}>PPG Config</Title>
       <div style={{ flexGrow: 1, display: 'flex' }}>
         <div style={{ width: "60%" }}>
           <div
