@@ -8,17 +8,17 @@ import { Modal, Group, Button, Checkbox, Select } from "@mantine/core";
 type FileFormat = "csv" | "tsv";
 
 export interface RecordConfig {
-    properties: {
-        'Accelerometer': boolean,
-        'Gyroscope': boolean,
-        'Magnetometer': boolean,
-        'PPG1': boolean,
-        'PPG2': boolean,
-        'SNR1': boolean,
-        'SNR2': boolean,
-    };
-    format: FileFormat;
-  }
+  properties: {
+    'Accelerometer': boolean,
+    'Gyroscope': boolean,
+    'Magnetometer': boolean,
+    'PPG1': boolean,
+    'PPG2': boolean,
+    'SNR1': boolean,
+    'SNR2': boolean,
+  };
+  format: FileFormat;
+}
 
 interface RecordModalProps {
   opened: boolean;
@@ -27,14 +27,14 @@ interface RecordModalProps {
 }
 
 export const DEFAULT_RECORDING_PROPERTIES = {
-        'Accelerometer': true,
-        'Gyroscope': true,
-        'Magnetometer': true,
-        'PPG1': true,
-        'PPG2': true,
-        'SNR1': true,
-        'SNR2': true,
-    };
+  'Accelerometer': true,
+  'Gyroscope': true,
+  'Magnetometer': true,
+  'PPG1': true,
+  'PPG2': true,
+  'SNR1': true,
+  'SNR2': true,
+};
 
 const RecordModal: React.FC<RecordModalProps> = ({
   opened,
@@ -51,19 +51,19 @@ const RecordModal: React.FC<RecordModalProps> = ({
   return (
     <Modal opened={opened} onClose={onClose} title="Setup recording">
       <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
-          {Object.entries(properties).map(([propertie, value], idx) => (
-              <Checkbox
-              key={idx}
-              label={propertie}
-              defaultChecked={value}
-              onChange={(e) => {
-                setProperties((curr) => {
-                 curr[propertie as keyof RecordConfig['properties']] = e.target.checked;
-                 return {...curr};
-                });
-              }}
-            />
-          ))}
+        {Object.entries(properties).map(([propertie, value], idx) => (
+          <Checkbox
+            key={idx}
+            label={propertie}
+            defaultChecked={value}
+            onChange={(e) => {
+              setProperties((curr) => {
+                curr[propertie as keyof RecordConfig['properties']] = e.target.checked;
+                return { ...curr };
+              });
+            }}
+          />
+        ))}
       </div>
       <Select
         label="Format"
@@ -84,7 +84,7 @@ const RecordModal: React.FC<RecordModalProps> = ({
         </Button>
         <Button
           onClick={() => {
-            onValidate({ properties: properties, format: format });
+            onValidate({ properties: { ...properties }, format: format });
           }}
         >
           Record
