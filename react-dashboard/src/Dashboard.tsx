@@ -55,12 +55,6 @@ function Dashboard() {
         defaultValue: true,
     });
 
-    useEffect(() => {
-        if (navigator.bluetooth === null || navigator.bluetooth === undefined) {
-            setErrorModalVisibility(true);
-        }
-    }, [])
-
     /** Steps for the tour */
     const tourSteps: StepType[] = useMemo(() => {
         return [
@@ -129,6 +123,10 @@ function Dashboard() {
     }, [])
 
     useEffect(() => {
+        if (navigator.bluetooth === null || navigator.bluetooth === undefined) {
+            setErrorModalVisibility(true);
+            return;
+        }
         setSteps(tourSteps);
         if (newUser) {
             setIsOpen(newUser)
