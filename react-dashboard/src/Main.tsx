@@ -68,6 +68,8 @@ const Main: React.FC<MainProps> = ({ gattServer }) => {
     const [snr2Char, setSnr2Char] = useState<BluetoothRemoteGATTCharacteristic | null>(null);
     const [snr1, setSnr1] = useState(0);
     const [snr2, setSnr2] = useState(0);
+    const snr1ref = useRef<number>(0);
+    const snr2ref = useRef<number>(0);
 
     const [accSwitchIsOn, setAccSwicth] = useState(true);
     const [gyrSwitchIsOn, setGyrSwicth] = useState(true);
@@ -80,10 +82,10 @@ const Main: React.FC<MainProps> = ({ gattServer }) => {
     useInterval(() => {
         if (!acquisitionStarted) return;
         if (snr1Char && ppg1SwitchIsOn) {
-            readSnr(snr1Char, setSnr1);
+            readSnr(snr1Char, setSnr1, snr1ref);
         }
         if (snr2Char && ppg2SwitchIsOn) {
-            readSnr(snr2Char, setSnr2);
+            readSnr(snr2Char, setSnr2, snr2ref);
         }
     }, 1000)
 
@@ -199,10 +201,10 @@ const Main: React.FC<MainProps> = ({ gattServer }) => {
                         line.push(ppg2Ref.current[ppg2Ref.current.length - 1].value);
                     }
                     if (recordingConfig.properties.SNR1) {
-                        line.push(snr1);
+                        line.push(snr1ref.current);
                     }
                     if (recordingConfig.properties.SNR2) {
-                        line.push(snr2);
+                        line.push(snr2ref.current);
                     }
                     recordingRef.current?.push(
                         line.join(recordingConfig.format === "csv" ? "," : "\t")

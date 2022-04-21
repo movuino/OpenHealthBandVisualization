@@ -74,8 +74,10 @@ const monitorSnrFactory = (setState: React.Dispatch<React.SetStateAction<number>
   };
 };
 
-const readSnr = async (characteristic: BluetoothRemoteGATTCharacteristic, setState: React.Dispatch<React.SetStateAction<number>>) => {
-  setState((await characteristic.readValue()).getUint32(0) / 100);
+const readSnr = async (characteristic: BluetoothRemoteGATTCharacteristic, setState: React.Dispatch<React.SetStateAction<number>>, ref: React.MutableRefObject<number>) => {
+  const val = (await characteristic.readValue()).getUint32(0) / 100;
+  setState(val);
+  ref.current = val;
 };
 
 export { monitorAccFactory, monitorGyrFactory, monitorMagFactory, monitorPpgFactory, monitorSnrFactory, readSnr };
